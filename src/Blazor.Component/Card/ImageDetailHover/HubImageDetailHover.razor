@@ -1,0 +1,16 @@
+<div class="hub-hover-card" style="background-image: url(@ImageSrc)">
+    <div class="content">
+        <h2 class="title">@Title</h2>
+        <p class="description">@Description</p>
+        @if (string.IsNullOrWhiteSpace(ButtonText) is false)
+        {
+            <MudButton
+                Class="mt-2 p-2"
+                Color="Color.Primary"
+                OnClick="@OnButtonClick"
+                Variant="Variant.Filled" >
+                @ButtonText
+            </MudButton>
+        }
+    </div>
+</div>

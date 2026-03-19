@@ -1,0 +1,59 @@
+<MudGrid Justify="Justify.Center">
+    
+    <MudItem xs="12" sm="12" md="12">
+        <div class="d-flex justify-center">
+            <MudIcon Icon="@HubCustomIcon.NetCore" Color="Color.Primary" Size="Size.Large" ViewBox="0 0 24 24" Style="width: 250px; height: 250px;"/>
+        </div>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudText Align="Align.Center" Typo="Typo.h5" Color="Color.Secondary">
+            Health Checks in NET.
+        </MudText>
+        <MudText Align="Align.Center" Typo="Typo.body2">
+            ASP.NET Core offers Health Checks Middleware and libraries for reporting the health of app infrastructure components.
+        </MudText>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudStack Row="true" Justify="Justify.Center">
+            <MudButton Target="_blank"
+                       Color="Color.Tertiary"
+                       Variant="Variant.Filled"
+                       StartIcon="@Icons.Custom.Brands.GitHub"
+                       Href="https://github.com/gitViwe/health-check">
+                GitHub
+            </MudButton>
+            <MudButton Target="_blank"
+                       Color="Color.Tertiary"
+                       Variant="Variant.Filled"
+                       StartIcon="@HubCustomIcon.NetCore"
+                       Href="@Configuration.GetHealthCheckUri()"
+                       Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubHealthCheck) is false)" >
+                Demo
+            </MudButton>
+        </MudStack>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudStack Row="true" Justify="Justify.Center">
+            <MudExpansionPanels Style="width: 90%;">
+                <MudExpansionPanel Text="Why Health Checks are important?">
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Observability:</b> Health checks expose the health of your app’s infrastructure components, allowing real-time monitoring of various aspects of your application.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Resiliency improvement:</b> Test your app’s dependencies, such as databases and external service endpoints, to confirm their availability. This can help you identify areas where your app’s resiliency could be improved.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Fall backs:</b> A load balancer might react to an unhealthy app by routing traffic away from the failing instance to a healthy instance.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Reducing Downtime:</b> By monitoring the health of your app and its dependencies, you can proactively address issues before they result in significant downtime.
+                    </MudText>
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+        </MudStack>
+    </MudItem>
+
+</MudGrid>

@@ -1,0 +1,85 @@
+<MudGrid Justify="Justify.Center">
+
+            <MudItem xs="12" sm="12" md="12">
+                <div class="d-flex justify-center">
+                    <MudIcon Icon="@HubCustomIcon.OpenTelemetry" Color="Color.Primary" Size="Size.Large" ViewBox="0 0 24 24" Style="width: 250px; height: 250px;" />
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudText Align="Align.Center" Typo="Typo.h5" Color="Color.Secondary">
+                    Observability with OpenTelemetry.
+                </MudText>
+                <MudText Align="Align.Center" Typo="Typo.body2">
+                    OpenTelemetry is a vendor-neutral open-source Observability framework for instrumenting, generating, collecting, and exporting telemetry data such as traces, metrics, logs.
+                </MudText>
+                <MudText Align="Align.Center" Typo="Typo.body2">
+                    As an industry-standard it is natively supported by a number of vendors.
+                </MudText>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudStack Row="true" Justify="Justify.Center">
+                    <MudButton Target="_blank"
+                               Color="Color.Tertiary"
+                               Variant="Variant.Filled"
+                               StartIcon="@Icons.Custom.Brands.GitHub"
+                               Href="https://github.com/gitViwe/openTelemetry">
+                        GitHub
+                    </MudButton>
+                    <MudTooltip Text="@ToolTipText">
+                        <MudButton Target="_blank"
+                                   Color="Color.Tertiary"
+                                   Variant="Variant.Filled"
+                                   StartIcon="@HubCustomIcon.Jaeger"
+                                   Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubOpenTelemetry) is false)"
+                                   Href="@Configuration.GetJaegerUiUri()">
+                            Traces
+                        </MudButton>
+                        <MudTooltip Text="@GrafanaCredentialsToolTipText">
+                            <MudButton Target="_blank"
+                                       Color="Color.Tertiary"
+                                       Variant="Variant.Filled"
+                                       StartIcon="@HubCustomIcon.Grafana"
+                                       Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubOpenTelemetry) is false)"
+                                       Href="@Configuration.GetGrafanaDashboardUri()">
+                                Metrics
+                            </MudButton>
+                        </MudTooltip>
+                        <MudButton Target="_blank"
+                                   Color="Color.Tertiary"
+                                   Variant="Variant.Filled"
+                                   StartIcon="@HubCustomIcon.Seq"
+                                   Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubOpenTelemetry) is false)"
+                                   Href="@Configuration.GetSeqUiUri()" >
+                            Logs
+                        </MudButton>
+                    </MudTooltip>
+                </MudStack>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudStack Row="true" Justify="Justify.Center">
+                    <MudExpansionPanels Style="width: 90%;">
+                        <MudExpansionPanel Text="Why is OpenTelemetry important?">
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                <b>Unified Approach:</b> OpenTelemetry provides a unified approach to collecting and analyzing telemetry data, including traces, metrics, and logs. This standardization simplifies the observability landscape, lowers barriers to adoption, and enhances collaboration across the industry.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                <b>Observability:</b> Observability is a measure of how well the internal states of a system can be inferred from its external outputs. OpenTelemetry enables the collection and analysis of metrics, events, logs, and traces, which are essential for monitoring system performance, resource usage, and other quantitative aspects.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                <b>Tracing:</b> OpenTelemetry tracks the end-to-end flow of requests through distributed systems, capturing the path of execution and timing information for each operation. This helps developers identify bottlenecks, latency issues, and service dependencies, which is crucial for optimizing and troubleshooting distributed applications.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                <b>Standardized Interfaces:</b> OpenTelemetry API provides a set of standardized interfaces for instrumenting applications to collect and export telemetry data in a vendor-neutral way. This includes the Tracer API for managing trace data and the Metric API for collecting and aggregating metrics data.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                <b>Simplicity and Flexibility:</b> OpenTelemetry is designed to streamline the process of instrumenting applications and services for observability. It offers flexible data handling and supports multiple programming languages and platforms.
+                            </MudText>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudStack>
+            </MudItem>
+
+        </MudGrid>

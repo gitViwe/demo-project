@@ -1,0 +1,86 @@
+@layout HubAuthenticationLayout
+@page "/authentication-register"
+
+<PageTitle>Register</PageTitle>
+
+<EditForm Model="@RegisterRequest" OnValidSubmit="SubmitAsync">
+
+    <DataAnnotationsValidator />
+
+    <MudText Typo="Typo.h4"
+             GutterBottom="true">
+        Sign Up
+    </MudText>
+
+    <MudText>
+        Already have an account? <MudLink Href="@LoginRoute">Login</MudLink>
+    </MudText>
+
+    <MudStack Spacing="3" Class="my-4">
+        <MudTextField Label="Username"
+                      Margin="Margin.Dense"
+                      @bind-Value="RegisterRequest.UserName"
+                      For="@(() => RegisterRequest.UserName)"
+                      OnBlur="@TrimWhitespaceFromUsername"
+                      Variant="Variant.Outlined" />
+        
+        <MudTextField Label="First Name"
+                      Margin="Margin.Dense"
+                      @bind-Value="RegisterRequest.FirstName"
+                      For="@(() => RegisterRequest.Email)"
+                      Variant="Variant.Outlined" />
+        
+        <MudTextField Label="Last Name"
+                      Margin="Margin.Dense"
+                      @bind-Value="RegisterRequest.LastName"
+                      For="@(() => RegisterRequest.Email)"
+                      Variant="Variant.Outlined" />
+
+        <MudTextField Label="Email Address"
+                      Margin="Margin.Dense"
+                      @bind-Value="RegisterRequest.Email"
+                      For="@(() => RegisterRequest.Email)"
+                      Variant="Variant.Outlined" />
+        
+        <HubPasswordField Label="Password"
+                          Margin="Margin.Dense"
+                          @bind-Value="RegisterRequest.Password"
+                          For="@(() => RegisterRequest.Password)"
+                          Variant="Variant.Outlined" />
+        
+        <HubPasswordField Label="Confirm Password"
+                          Margin="Margin.Dense"
+                          @bind-Value="RegisterRequest.PasswordConfirmation"
+                          For="@(() => RegisterRequest.PasswordConfirmation)"
+                          Variant="Variant.Outlined" />
+    </MudStack>
+
+    <MudStack Spacing="2">
+        <HubLoadingButton ButtonType="ButtonType.Submit"
+                          Variant="Variant.Filled"
+                          Color="Color.Primary"
+                          Size="Size.Large"
+                          Disabled="IsProcessing"
+                          Loading=@IsProcessing
+                          LoadingMessage="@IsProcessingMessage"
+                          LoadingTimeout="@TimeSpan.FromSeconds(7)"
+                          LoadingTimeoutElapsed="OnLoadingTimeoutElapsed"
+                          FullWidth="true">
+            <ChildContent>
+                Sign Up
+            </ChildContent>
+        </HubLoadingButton>
+        <MudButton ButtonType="ButtonType.Button"
+                   Variant="Variant.Text"
+                   Color="Color.Info"
+                   Size="Size.Small"
+                   Disabled="IsProcessing"
+                   FullWidth="true"
+                   Href="/">
+
+            <MudText>
+                Home
+            </MudText>
+        </MudButton>
+    </MudStack>
+</EditForm>

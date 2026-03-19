@@ -1,0 +1,59 @@
+<MudGrid Justify="Justify.Center">
+    
+    <MudItem xs="12" sm="12" md="12">
+                <div class="d-flex justify-center">
+                    <MudIcon Icon="@HubCustomIcon.Scalar" Color="Color.Default" Size="Size.Large" ViewBox="0 0 24 24" Style="width: 250px; height: 250px;" />
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudText Align="Align.Center" Typo="Typo.h5" Color="Color.Secondary">
+                    API Documentation with Scalar.
+                </MudText>
+                <MudText Align="Align.Center" Typo="Typo.body2">
+                    Write and publish APIs, seamlessly manage your OpenAPI documents.
+                </MudText>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudStack Row="true" Justify="Justify.Center">
+                    <MudButton Target="_blank"
+                               Color="Color.Tertiary"
+                               Variant="Variant.Filled"
+                               StartIcon="@Icons.Custom.Brands.GitHub"
+                               Href="https://github.com/gitViwe/open-hubviwe">
+                        GitHub
+                    </MudButton>
+                    <MudButton Target="_blank"
+                               Href="@Configuration.GetScalarUri()"
+                               Color="Color.Tertiary"
+                               Variant="Variant.Filled"
+                               StartIcon="@HubCustomIcon.Scalar"
+                               Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubScalar) is false)" >
+                        Demo
+                    </MudButton>
+                </MudStack>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudStack Row="true" Justify="Justify.Center">
+                    <MudExpansionPanels Style="width: 90%;">
+                        <MudExpansionPanel Text="Why use Scalar UI?">
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                Bring your brand easily to Scalar Docs, we don't want your docs to look like everyone else's.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                Let your docs live alongside your code, write docs in markdown and link your OpenAPI files.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                Import your OpenAPI file and get beautiful documentation with our API References.
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="my-1">
+                                Let your users quickly try out your APIs right inside of the docs, reducing onboarding time.
+                            </MudText>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudStack>
+            </MudItem>
+
+        </MudGrid>

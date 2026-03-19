@@ -1,0 +1,59 @@
+<MudGrid Justify="Justify.Center">
+    
+    <MudItem xs="12" sm="12" md="12">
+        <div class="d-flex justify-center">
+            <MudIcon Icon="@HubCustomIcon.SwaggerUi" Color="Color.Primary" Size="Size.Large" ViewBox="0 0 24 24" Style="width: 250px; height: 250px;" />
+        </div>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudText Align="Align.Center" Typo="Typo.h5" Color="Color.Secondary">
+            API Documentation with Swagger.
+        </MudText>
+        <MudText Align="Align.Center" Typo="Typo.body2">
+            Swagger tools takes the hard work out of generating and maintaining your API docs, ensuring your documentation stays up-to-date as your API evolves.
+        </MudText>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudStack Row="true" Justify="Justify.Center">
+            <MudButton Target="_blank"
+                       Color="Color.Tertiary"
+                       Variant="Variant.Filled"
+                       StartIcon="@Icons.Custom.Brands.GitHub"
+                       Href="https://github.com/gitViwe/open-hubviwe">
+                GitHub
+            </MudButton>
+            <MudButton Target="_blank"
+                       Href="@Configuration.GetSwaggerUri()"
+                       Color="Color.Tertiary"
+                       Variant="Variant.Filled"
+                       StartIcon="@HubCustomIcon.SwaggerUi"
+                       Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubSwagger) is false)" >
+                Demo
+            </MudButton>
+        </MudStack>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudStack Row="true" Justify="Justify.Center">
+            <MudExpansionPanels Style="width: 90%;">
+                <MudExpansionPanel Text="Why use Swagger UI?">
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        Allows you to generate interactive API documentation that lets your users try out the API calls directly in the browser.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        Enables you to generate client libraries and server stubs for your API.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        Helps you to maintain consistency and reduce errors in the code that interacts with your API.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        Facilitates the communication and collaboration among different stakeholders of your API, such as developers, testers, product managers, and customers.
+                    </MudText>
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+        </MudStack>
+    </MudItem>
+
+</MudGrid>

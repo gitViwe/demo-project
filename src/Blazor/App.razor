@@ -1,0 +1,29 @@
+﻿<CascadingAuthenticationState>
+    <CascadingHubFeatureManager>
+        <CascadingHubOpenTelemetryManager>
+            
+            <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="[typeof(Blazor.Component.Startup).Assembly]" NotFoundPage="typeof(Pages.NotFound)">
+                <Navigating>
+                    <LayoutView Layout="@typeof(HubDefaultLayout)">
+                        <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true"/>
+                    </LayoutView>
+                </Navigating>
+                <Found Context="routeData">
+                    <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(HubDefaultLayout)">
+                        <NotAuthorized>
+                            @if (context.User.Identity?.IsAuthenticated != true)
+                            {
+                                <HubRedirectToLogin/>
+                            }
+                            else
+                            {
+                                <p role="alert">You are not authorized to access this resource.</p>
+                            }
+                        </NotAuthorized>
+                    </AuthorizeRouteView>
+                </Found>
+            </Router>
+            
+        </CascadingHubOpenTelemetryManager>
+    </CascadingHubFeatureManager>
+</CascadingAuthenticationState>

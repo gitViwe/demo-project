@@ -1,0 +1,41 @@
+﻿@page "/"
+
+<PageTitle>Viwe Nkepu</PageTitle>
+
+<MudGrid Justify="Justify.Center">
+    
+    <HeroSection />
+    
+    <TimelineSection />
+
+    <MudItem xs="12" sm="12" md="12">
+        
+        <section id="@HubBlazorPage.Playground.Section" class="section-padding">
+            <PlaygroundSection/>
+        </section>
+
+        <section id="@HubBlazorPage.Documentation.Swagger" class="section-padding">
+            <SwaggerProjectSection/>
+        </section>
+
+        <section id="@HubBlazorPage.Documentation.Scalar" class="section-padding">
+            <ScalarProjectSection/>
+        </section>
+
+        <section id="@HubBlazorPage.Documentation.GraphQl" class="section-padding">
+            <GrapQlProjectSection/>
+        </section>
+
+        <section id="@HubBlazorPage.Observability.OpenTelemetry" class="section-padding">
+            <OpenTelemetryProjectSection/>
+        </section>
+
+        <section id="@HubBlazorPage.Observability.HealthCheck" class="section-padding">
+            <HealthCheckProjectSection/>
+        </section>
+        
+        <HubWebAuthentication />
+
+    </MudItem>
+    
+</MudGrid>

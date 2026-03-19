@@ -1,0 +1,60 @@
+@layout HubAuthenticationLayout
+@page "/authentication-login"
+
+<PageTitle>Login</PageTitle>
+
+<EditForm Model="@LoginRequest" OnValidSubmit="SubmitAsync">
+
+    <DataAnnotationsValidator />
+    
+    <MudText Typo="Typo.h4"
+             GutterBottom="true">
+        Sign In
+    </MudText>
+
+    <MudText>
+        Don't have an account? <MudLink Href="@RegisterRoute">Register</MudLink>
+    </MudText>
+
+    <MudTextField Label="Email Address"
+                  Margin="Margin.Dense"
+                  @bind-Value="LoginRequest.Email"
+                  For="@(() => LoginRequest.Email)"
+                  Variant="Variant.Outlined"
+                  Class="my-6" />
+
+    <HubPasswordField Label="Password"
+                      Margin="Margin.Dense"
+                      @bind-Value="LoginRequest.Password"
+                      For="@(() => LoginRequest.Password)"
+                      Variant="Variant.Outlined" />
+
+    <MudStack Spacing="2" Class="mt-6">
+        <HubLoadingButton ButtonType="ButtonType.Submit"
+                          Variant="Variant.Filled"
+                          Color="Color.Primary"
+                          Size="Size.Large"
+                          Disabled="@IsProcessing"
+                          Loading="@IsProcessing"
+                          LoadingMessage="@IsProcessingMessage"
+                          LoadingTimeout="@TimeSpan.FromSeconds(7)"
+                          LoadingTimeoutElapsed="@OnLoadingTimeoutElapsed"
+                          FullWidth="true">
+            <ChildContent>
+                Sign In
+            </ChildContent>
+        </HubLoadingButton>
+        <MudButton ButtonType="ButtonType.Button"
+                   Variant="Variant.Text"
+                   Color="Color.Info"
+                   Size="Size.Small"
+                   Disabled="IsProcessing"
+                   FullWidth="true"
+                   Href="/">
+
+            <MudText>
+                Home
+            </MudText>
+        </MudButton>
+    </MudStack>
+</EditForm>

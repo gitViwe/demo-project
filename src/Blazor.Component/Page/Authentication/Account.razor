@@ -1,0 +1,69 @@
+@attribute [Authorize]
+@page "/authentication-account"
+
+<PageTitle>Account</PageTitle>
+
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">Account</MudText>
+
+<MudGrid Justify="Justify.Center">
+
+    <MudItem sm="12" md=10 lg="8" Class="my-2">
+
+        <EditForm Model="@UpdateUserModel" OnValidSubmit="SubmitAsync">
+            <DataAnnotationsValidator />
+
+            <MudCard>
+                <MudCardContent>
+                    <MudGrid>
+                        <MudItem xs="12" md="6">
+                            <MudTextField Label="First Name"
+                                          @bind-Value="UpdateUserModel.FirstName"
+                                          For="@(() => UpdateUserModel.FirstName)"
+                                          Variant="Variant.Outlined" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                            <MudTextField Label="Last Name"
+                                          @bind-Value="UpdateUserModel.LastName"
+                                          For="@(() => UpdateUserModel.LastName)"
+                                          Variant="Variant.Outlined" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                            <MudTextField Label="Username"
+                                          @bind-Value="UserName"
+                                          Disabled=true
+                                          For="@(() => UserName)"
+                                          Variant="Variant.Outlined" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                            <MudTextField Label="Email"
+                                          @bind-Value="Email"
+                                          Disabled=true
+                                          For="@(() => Email)"
+                                          Variant="Variant.Outlined" />
+                        </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+                <MudCardActions Class="pb-4 pl-4">
+                    <HubLoadingButton ButtonType="ButtonType.Submit"
+                                      Variant="Variant.Filled"
+                                      Color="Color.Primary"
+                                      Size="Size.Large"
+                                      Disabled="IsProcessing"
+                                      Loading=@IsProcessing
+                                      LoadingMessage="@IsProcessingMessage"
+                                      LoadingTimeout="@TimeSpan.FromSeconds(7)"
+                                      LoadingTimeoutElapsed="OnLoadingTimeoutElapsed"
+                                      FullWidth="true">
+                        <ChildContent>
+                            Save Changes
+                        </ChildContent>
+                    </HubLoadingButton>
+                </MudCardActions>
+            </MudCard>
+
+        </EditForm>
+
+    </MudItem>
+
+</MudGrid>
+

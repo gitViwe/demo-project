@@ -1,0 +1,14 @@
+@if (_featureIsEnabled)
+{
+    @ChildContent
+}
+else
+    switch (_isLoading)
+    {
+        case true when LoadingContent is not null:
+            @LoadingContent
+            break;
+        case false when _featureIsEnabled is false && DisabledContent is not null:
+            @DisabledContent
+            break;
+    }

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.1"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.1" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="10.0.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blazor.Component.ChoreTracker\Blazor.Component.ChoreTracker.csproj" />
+      <ProjectReference Include="..\Blazor.Component.WebAuthn\Blazor.Component.WebAuthn.csproj" />
+      <ProjectReference Include="..\Blazor.Infrastructure\Blazor.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Layout\LoginDisplay.razor" />
+      <_ContentIncludedByDefault Remove="Layout\MainLayout.razor" />
+      <_ContentIncludedByDefault Remove="Layout\NavMenu.razor" />
+      <_ContentIncludedByDefault Remove="Layout\RedirectToLogin.razor" />
+    </ItemGroup>
+
+</Project>

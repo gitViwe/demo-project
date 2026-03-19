@@ -1,0 +1,71 @@
+<MudAppBar
+    Fixed="true"
+    Elevation="0"
+    Color="Color.Transparent"
+    Class="@(IsDarkMode ? "appbar-blur mix-difference" : "appbar-blur")">
+    <MudHidden Breakpoint="Breakpoint.MdAndUp">
+        <MudIconButton
+            Edge="Edge.Start"
+            Size="Size.Large"
+            Color="Color.Inherit"
+            OnClick="@OnDrawerToggle"
+            Icon="@Icons.Material.Outlined.Menu"/>
+    </MudHidden>
+    <MudIcon
+        Icon="@LogoIcon"
+        Size="Size.Large"
+        Color="Color.Inherit"
+        ViewBox="0 0 362.5 213"/>
+    <MudHidden Breakpoint="Breakpoint.Xs">
+        <MudText
+            Class="ml-4"
+            Typo="Typo.body1">
+            @LogoDescription
+        </MudText>
+    </MudHidden>
+
+    <MudSpacer/>
+
+    <MudTooltip Text="@DarkModeDescription">
+        <MudIconButton
+            Edge="Edge.End"
+            Size="Size.Small"
+            Icon="@DarkModeIcon"
+            Color="Color.Inherit"
+            OnClick="@(_ => ToggleDarkMode())"/>
+    </MudTooltip>
+
+    <MudDivider
+        FlexItem="true"
+        Vertical="true"
+        Class="mx-4 my-4"
+        DividerType="DividerType.Middle"/>
+
+    <MudTooltip Text="Send email">
+        <MudIconButton
+            Class="mx-2"
+            Edge="Edge.End"
+            Color="Color.Inherit"
+            Icon="@Icons.Material.Outlined.Email"
+            Href="mailto:viwe.nkepu@hotmail.com?subject=Would love to connect&body=Hi, Viwe. Hope this finds you well."/>
+    </MudTooltip>
+
+    <MudTooltip Text="LinkedIn">
+        <MudIconButton
+            Class="mx-2"
+            Target="_blank"
+            Edge="Edge.End"
+            Color="Color.Inherit"
+            Icon="@Icons.Custom.Brands.LinkedIn"
+            Href="https://www.linkedin.com/in/viwe-nkepu-0602a3209/"/>
+    </MudTooltip>
+
+    <MudTooltip Text="GitHub">
+        <MudIconButton
+            Target="_blank"
+            Edge="Edge.End"
+            Color="Color.Inherit"
+            Icon="@Icons.Custom.Brands.GitHub"
+            Href="https://github.com/gitViwe/open-hubviwe"/>
+    </MudTooltip>
+</MudAppBar>

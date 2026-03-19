@@ -1,0 +1,47 @@
+@inherits LayoutComponentBase
+
+<MudThemeProvider
+    IsDarkMode="@IsDarkMode"
+    Theme="@HubDefaultTheme.Default"
+    @ref="@MudThemeProviderReference" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudScrollToTop>
+    <MudFab
+        IconSize="Size.Small"
+        Color="Color.Tertiary"
+        StartIcon="@Icons.Material.Filled.KeyboardArrowUp" />
+</MudScrollToTop>
+
+<PageTitle>Viwe Nkepu</PageTitle>
+
+<MudLayout>
+    <HubAppbar
+        IsDarkMode="@IsDarkMode"
+        LogoDescription="Viwe Nkepu"
+        LogoIcon="@HubCustomIcon.ViweNkepu"
+        OnDrawerToggle="@(_ => ToggleDrawer())"
+        OnDarkModeToggle="@(val => DarkModeChanged(val))"/>
+    <MudDrawer
+        Elevation=1
+        Height="100%"
+        @bind-Open="IsDrawerOpen"
+        ClipMode="DrawerClipMode.Always" >
+        <HubSideNavigation />
+    </MudDrawer>
+    <MudMainContent>
+        <MudHidden Breakpoint="Breakpoint.SmAndDown">
+            <MudToolBar Gutters="false" Style="position: fixed; z-index: 1;">
+                <MudIconButton
+                    Class="ml-3"
+                    Color="Color.Inherit"
+                    OnClick="@(_ => ToggleDrawer())"
+                    Icon="@Icons.Material.Outlined.Menu"/>
+            </MudToolBar>
+        </MudHidden>
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-11">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

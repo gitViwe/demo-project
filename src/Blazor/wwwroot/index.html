@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viwe Nkepu</title>
+    <base href="/" />
+    <link rel="preload" id="webassembly" />
+    <link rel="stylesheet" href="css/loader.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="Blazor.styles.css" rel="stylesheet" />
+    <!-- Important: Increment the version parameter whenever you update MudBlazor to prevent caching issues -->
+    <link href="_content/MudBlazor/MudBlazor.min.css?v=1" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="_content/Blazor.Component/css/component-main.css" />
+    <script type="importmap"></script>
+</head>
+
+<body>
+    <div id="app">
+        <style>
+            .hub-loader-container {
+                left: 50%;
+                padding: 10vmin;
+                position: fixed;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%,-50%)
+            }
+        </style>
+        
+        <div style="height:100%;width:100%;margin:0;position:fixed;">
+            <div class="hub-loader-container">
+                <div class="hub-card">
+                    <div class="hub-loader">
+                        <p>just a</p>
+                        <div class="hub-words">
+                            <span class="hub-word">developer</span>
+                            <span class="hub-word">creative</span>
+                            <span class="hub-word">techie</span>
+                            <span class="hub-word">gamer</span>
+                            <span class="hub-word">father</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+    <!-- Important: Increment the version parameter whenever you update MudBlazor to prevent caching issues -->
+    <script src="_content/MudBlazor/MudBlazor.min.js?v=1"></script>
+    <script src="js/index.bundle.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+global using System.ComponentModel.DataAnnotations;
+global using System.Text;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.JSInterop;
+global using Blazor.Shared.OpenTelemetry;
+global using System.Net;
+global using Blazor.Shared.Interface;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Http.Resilience;
+global using Polly;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+global using Blazor.Shared.Contract;
+global using gitViwe.Shared;

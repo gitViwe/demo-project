@@ -1,0 +1,75 @@
+<MudGrid Justify="Justify.Center">
+    
+    <MudItem xs="12" sm="12" md="12">
+        <div class="d-flex justify-center">
+            <MudIcon Icon="@HubCustomIcon.GraphQl" Color="Color.Primary" Size="Size.Large" ViewBox="0 0 24 24" Style="width: 250px; height: 250px;"/>
+        </div>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudText Align="Align.Center" Typo="Typo.h5" Color="Color.Secondary">
+            GraphQL, a query language for your API.
+        </MudText>
+        <MudText Align="Align.Center" Typo="Typo.body2">
+            GraphQL provides a complete and understandable description of the data in your API, giving clients the power to ask for exactly what they need and nothing more.
+        </MudText>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudStack Row="true" Justify="Justify.Center">
+            <MudButton Target="_blank"
+                       Color="Color.Tertiary"
+                       Variant="Variant.Filled"
+                       StartIcon="@Icons.Custom.Brands.GitHub"
+                       Href="https://github.com/gitViwe/GraphQL">
+                GitHub
+            </MudButton>
+            <MudButton Target="_blank"
+                       Color="Color.Tertiary"
+                       Variant="Variant.Filled"
+                       StartIcon="@HubCustomIcon.GraphQl"
+                       Href="@Configuration.GetGraphQlUri()"
+                       Disabled="@(HubFeatureManagerContext.IsFeatureEnabled(HubFeatureName.HubGraphQl) is false)" >
+                Demo
+            </MudButton>
+        </MudStack>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <MudStack Row="true" Justify="Justify.Center">
+            <MudExpansionPanels Style="width: 90%;">
+                <MudExpansionPanel Text="Why use GraphQL?">
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>It is faster</b>, as it reduces the number of API calls and the amount of data transferred.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>It is better for complex systems and microservices</b>, as it integrates multiple sources behind a single endpoint and hides their complexity.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>It avoids over-fetching and under-fetching problems</b>, as it fetches only the exact and specific data in a single request.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>It is strongly typed</b>, which enables validation and error handling before executing a query.
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>It is protocol-agnostic</b>, which means it can work with any existing system or database.
+                    </MudText>
+                </MudExpansionPanel>
+                <MudExpansionPanel Text="Checkout the demo with Nitro (Banana Cake Pop)" Expanded=true>
+
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Query</b>: get a quick start query file <MudLink Href="https://github.com/gitViwe/open-hubviwe/tree/main/graphql/query" Target="_blank">here.</MudLink>
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Mutation</b>: get a quick start mutation file <MudLink Href="https://github.com/gitViwe/open-hubviwe/tree/main/graphql/mutation" Target="_blank">here.</MudLink>
+                    </MudText>
+                    <MudText Typo="Typo.body2" Class="my-1">
+                        <b>Subscription</b>: get a quick start subscription file <MudLink Href="https://github.com/gitViwe/open-hubviwe/tree/main/graphql/subscription" Target="_blank">here.</MudLink>
+                    </MudText>
+
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+        </MudStack>
+    </MudItem>
+
+</MudGrid>

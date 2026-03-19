@@ -1,0 +1,75 @@
+<MudGrid Justify="Justify.Center">
+    
+    <MudItem xs="12" sm="12" md="12">
+        <MudText Align="Align.Center" Typo="Typo.h5" Color="Color.Secondary">
+            My Playground
+        </MudText>
+        <MudText Align="Align.Center" Typo="Typo.body2">
+            Random projects to make learning fun!
+        </MudText>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="12">
+        <HubFloatingBlock BlockCount="_currentCount" />
+        <MudStack
+            Row="true"
+            Justify="Justify.Center"
+            AlignItems="AlignItems.Center"
+            Breakpoint="Breakpoint.MdAndDown">
+            <MudStack
+                Row="true"
+                Justify="Justify.Center"
+                AlignItems="AlignItems.Center">
+                <MudFab
+                    Size="Size.Small"
+                    Color="Color.Primary"
+                    OnClick="@DecrementCount"
+                    StartIcon="fa-solid fa-circle-minus fa-beat"/>
+                <MudChip T="string" Size="Size.Small">Floating blocks: @_currentCount</MudChip>
+                <MudFab
+                    Size="Size.Small"
+                    Color="Color.Primary"
+                    OnClick="@IncrementCount"
+                    StartIcon="fa-solid fa-circle-plus   fa-beat"/>
+            </MudStack>
+            <MudDivider Vertical="true" FlexItem="true" />
+            <MudButton
+                Size="Size.Large"
+                Color="Color.Tertiary"
+                Variant="Variant.Outlined"
+                Href="@HubBlazorPage.Playground.Chore"
+                EndIcon="@Icons.Material.Filled.CleanHands">
+                Chore tracker
+            </MudButton>
+            <MudButton
+                Size="Size.Large"
+                Color="Color.Tertiary"
+                Variant="Variant.Outlined"
+                Href="@HubBlazorPage.Authentication.Register"
+                EndIcon="@Icons.Material.Filled.ManageAccounts">
+                Account Management
+            </MudButton>
+        </MudStack>
+    </MudItem>
+
+</MudGrid>
+
+@code {
+    private int _currentCount = 15;
+    
+    private void IncrementCount()
+    {
+        if (_currentCount < 30)
+        {
+            _currentCount ++;
+        }
+    }
+    
+    private void DecrementCount()
+    {
+        if (_currentCount > 0)
+        {
+            _currentCount--;
+        }
+    }
+}
