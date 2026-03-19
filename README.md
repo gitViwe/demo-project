@@ -33,13 +33,13 @@ The entire ecosystem is containerized for a single-command setup.
 Follow these steps to test the end-to-end integration and trigger the observability pipeline.
 
 ### Step 1: Registration
-* **Navigate to:** `http://localhost:5109/authentication-register`
+* **Navigate to:** http://localhost:5109/authentication-register
 * **Action:** Fill in your details and click **Register**.
 * **What happens:** The Blazor WASM app sends a POST request to the Nginx gateway, which proxies it to the `auth-api`. A new user is created in PostgreSQL, and a JWT is issued.
 
 ### Step 2: Automatic Routing
 * **Action:** Upon successful registration, the app is configured to automatically route you.
-* **Destination:** You will be redirected to **`/authentication-account`**.
+* **Destination:** You will be redirected to **http://localhost:5109/authentication-account**.
 * **Verification:** You should see your user profile details loaded into the UI components.
 
 ### Step 3: Update Account Details
