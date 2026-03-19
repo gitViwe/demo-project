@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>14</LangVersion>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Fido2.Models" Version="4.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blazor.Component\Blazor.Component.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Update="wwwroot\js\hub-web-authentication.ts">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </TypeScriptCompile>
+    </ItemGroup>
+
+</Project>

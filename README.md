@@ -10,10 +10,21 @@ The entire ecosystem is containerized for a single-command setup.
 
 1.  **Clone and Launch:**
     ```bash
-    docker-compose up -d --build
+    docker-compose up -d
     ```
 2.  **Verify Services:** Ensure all containers are healthy (especially `postgres` and `auth-api`).
-3.  **Access the App:** Open your browser to **`http://localhost:5109`**.
+    
+    *Note: If you run into network issues, try pulling the images individually.*
+    ```bash
+    docker pull hubviwe/thebase.blazor.wasm:0.9.14
+    docker pull hubviwe/thebase.auth.api:0.9.14
+    docker pull postgres:16.3-alpine
+    docker pull otel/opentelemetry-collector:0.103.0
+    docker pull jaegertracing/all-in-one:1.58
+    docker pull datalust/seq:2024.3
+    docker pull grafana/grafana:10.4.4
+    docker pull prom/prometheus:v2.45.6
+    ```
 
 
 

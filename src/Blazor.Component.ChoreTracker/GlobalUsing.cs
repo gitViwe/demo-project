@@ -1,0 +1,9 @@
+global using MudBlazor;
+global using Microsoft.AspNetCore.Components;
+global using Blazor.Component.ChoreTracker.Model;
+global using Microsoft.JSInterop;
+global using System.Text.Json;
+global using Blazor.Component.Manager.OpenTelemetry;
+global using Blazor.Shared.Extension;
+global using Blazor.Shared.Interface;
+global using Blazor.Shared.OpenTelemetry;

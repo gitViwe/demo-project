@@ -1,0 +1,29 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^9.*",
+    "typescript": "^5.*",
+    "webpack": "^5.*",
+    "webpack-cli": "^6.*"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.*",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.208.*",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.208.*",
+    "@opentelemetry/instrumentation": "^0.208.0",
+    "@opentelemetry/instrumentation-fetch": "^0.208.0",
+    "@opentelemetry/resources": "^2.2.*",
+    "@opentelemetry/sdk-metrics": "^2.2.*",
+    "@opentelemetry/sdk-trace-base": "^2.2.*",
+    "@opentelemetry/sdk-trace-web": "^2.2.*",
+    "@opentelemetry/semantic-conventions": "^1.38.*"
+  }
+}

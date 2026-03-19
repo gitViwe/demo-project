@@ -1,0 +1,68 @@
+<MudItem xs="12" sm="12" md="12">
+    <MudPaper Class="pa-6 rounded-lg">
+        <MudStack
+            Row="true"
+            Spacing="5"
+            AlignItems="AlignItems.Center"
+            Justify="Justify.SpaceBetween"
+            StretchItems="StretchItems.End"
+            Breakpoint="Breakpoint.MdAndDown">
+            
+            <MudStack
+                Row="true"
+                Spacing="4"
+                Style="min-width: 210px"
+                AlignItems="AlignItems.Center">
+                <MudAvatar
+                    Size="Size.Large"
+                    Color="Color.Primary"
+                    Variant="Variant.Filled">
+                    <MudIcon Icon="@Icons.Material.Filled.CleanHands"/>
+                </MudAvatar>
+                <MudItem>
+                    <MudText
+                        Typo="Typo.h5"
+                        Class="font-bold">
+                        @Title
+                    </MudText>
+                    <MudText
+                        Typo="Typo.subtitle2"
+                        Color="Color.Secondary">
+                        @Description
+                    </MudText>
+                </MudItem>
+            </MudStack>
+
+            <MudStack Spacing="1" Style="width: 100%; min-width: 300px">
+                @foreach (var item in ItemProgressDetail)
+                {
+                    <MudStack
+                        Row="true"
+                        Spacing="2"
+                        AlignItems="AlignItems.Center">
+                        <MudText
+                            Class="font-bold"
+                            Typo="Typo.caption"
+                            Style="width: 60px">
+                            @item.Key
+                        </MudText>
+                        <MudProgressLinear
+                            Value="@item.Value"
+                            Class="flex-grow-1"
+                            Color="@GetProgressColor(item.Value)"/>
+                        <MudText
+                            Class="font-bold"
+                            Typo="Typo.caption">
+                            @item.Value%
+                        </MudText>
+                        <MudIconButton
+                            Size="Size.Small"
+                            OnClick="@(async () => await OnResetButtonClick.InvokeAsync(item.Key))"
+                            Icon="@Icons.Material.Filled.Refresh"/>
+                    </MudStack>
+                }
+            </MudStack>
+            
+        </MudStack>
+    </MudPaper>
+</MudItem>

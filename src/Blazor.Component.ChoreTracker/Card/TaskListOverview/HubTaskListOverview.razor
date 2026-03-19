@@ -1,0 +1,94 @@
+<MudItem xs="12" sm="12" md="12">
+    <MudTabs
+        Elevation="2"
+        Rounded="true"
+        Centered="true"
+        PanelClass="pa-6"
+        ApplyEffectsToContainer="true"
+        ActivePanelIndex="_selectedPanelFrequency"
+        ActivePanelIndexChanged="OnPanelIndexChanged">
+        <MudTabPanel Text="All"/>
+        @foreach (var frequency in Enum.GetNames<Frequency>())
+        {
+            <MudTabPanel Text="@frequency"/>
+        }
+    </MudTabs>
+
+    <MudButton
+        FullWidth="true"
+        Color="Color.Primary"
+        Variant="Variant.Filled"
+        OnClick="@(() => AddTaskItemAsync())"
+        StartIcon="@Icons.Material.Filled.Add">
+        New Task
+    </MudButton>
+</MudItem>
+
+@foreach (var group in GetGroupedTasks())
+{
+    <MudItem xs="12" sm="12" md="12">
+        <MudCard Elevation="2" Class="rounded-xl">
+            <MudCardHeader Class="bg-indigo-50">
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6" Color="Color.Primary">
+                        @group.Key
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudChip
+                        T="string"
+                        Size="Size.Small"
+                        Color="Color.Info"
+                        Variant="Variant.Outlined">
+                        @group.DoneCount / @group.TotalCount Done
+                    </MudChip>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudList T="string">
+                    @foreach (var task in group.TaskItems)
+                    {
+                        <MudListItem Icon="@(task.Completed ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.RadioButtonUnchecked)"
+                                     IconColor="@(task.Completed ? Color.Success : Color.Default)"
+                                     OnClick="@(async () => await ToggleTaskItemAsync(task.Id))">
+                            <MudStack Row="true" Justify="Justify.SpaceBetween">
+                                <MudItem>
+                                    <MudText Typo="Typo.body1" Class="font-bold">@task.Name</MudText>
+                                    <MudStack Row="true" Spacing="1">
+                                        <MudChip
+                                            T="string"
+                                            Size="Size.Small"
+                                            Variant="Variant.Filled"
+                                            Color="@GetFrequencyColor(task.Frequency)">
+                                            @task.Frequency
+                                        </MudChip>
+                                        <MudChip T="string" Size="Size.Small">
+                                            <AvatarContent>
+                                                <MudAvatar>@task.Assignee[0]</MudAvatar>
+                                            </AvatarContent>
+                                            <ChildContent>@task.Assignee</ChildContent>
+                                        </MudChip>
+                                    </MudStack>
+                                </MudItem>
+
+                                <MudStack Row="true">
+                                    <MudFab
+                                        Size="Size.Small"
+                                        Color="Color.Default"
+                                        StartIcon="@Icons.Material.Filled.Edit"
+                                        OnClick="@(async () => await EditTaskItemAsync(task))" />
+                                    <MudFab
+                                        Size="Size.Small"
+                                        Color="Color.Error"
+                                        StartIcon="@Icons.Material.Filled.Delete"
+                                        OnClick="@(async () => await DeleteTaskItemAsync(task))" />
+                                </MudStack>
+                            </MudStack>
+
+                        </MudListItem>
+                    }
+                </MudList>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+}

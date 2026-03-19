@@ -1,0 +1,58 @@
+@using Microsoft.AspNetCore.Components.Forms
+<MudTabs Elevation="2" Rounded="true" ApplyEffectsToContents="true" PanelClass="pa-6">
+    <MudTabPanel Text="Register Passkey">
+        <EditForm Model="@RegisterModel" OnValidSubmit="RegisterAsync">
+            
+            <MudTextField Label="Display Name (e.g., My Laptop)"
+                          @bind-Value="RegisterModel.DisplayName"
+                          For="@(() => RegisterModel.DisplayName)"
+                          Variant="Variant.Outlined"
+                          Class="my-6" />
+
+            <MudStack Spacing="2">
+                <HubLoadingButton ButtonType="ButtonType.Submit"
+                                  Variant="Variant.Filled"
+                                  Color="Color.Primary"
+                                  Size="Size.Large"
+                                  Disabled="IsProcessing"
+                                  Loading="@IsProcessing"
+                                  LoadingMessage="Waiting for Authenticator..."
+                                  FullWidth="true">
+                    <ChildContent>
+                        Create Passkey
+                    </ChildContent>
+                </HubLoadingButton>
+            </MudStack>
+        </EditForm>
+    </MudTabPanel>
+
+    <MudTabPanel Text="Login">
+        <MudText Typo="Typo.body1" Class="mb-4">
+            Sign in using your saved security key or biometric credential.
+        </MudText>
+        
+        <MudStack Spacing="2">
+            <HubLoadingButton OnClick="@LoginAsync"
+                              Variant="Variant.Filled"
+                              Color="Color.Secondary"
+                              Size="Size.Large"
+                              Disabled="IsProcessing"
+                              Loading="@IsProcessing"
+                              LoadingMessage="Verifying..."
+                              FullWidth="true">
+                <ChildContent>
+                    Sign in with Passkey
+                </ChildContent>
+            </HubLoadingButton>
+
+            <MudButton Variant="Variant.Text"
+                       Color="Color.Info"
+                       Size="Size.Small"
+                       Href="/"
+                       Disabled="IsProcessing"
+                       FullWidth="true">
+                Back to Home
+            </MudButton>
+        </MudStack>
+    </MudTabPanel>
+</MudTabs>
